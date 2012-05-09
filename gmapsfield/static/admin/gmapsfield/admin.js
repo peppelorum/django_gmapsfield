@@ -29,13 +29,14 @@
 		
 		// Construct useful closure per map instance
 		$(".google-map[type=text]").live("initialize-map", function(evt, data) {
-			var map, data, orig = $(this), clone = orig.clone(true).attr("type", "hidden"), defaults = {
+			var map, data, orig = $(this), clone = orig.clone(true), defaults = {
 				size : ["500px", "400px"],
 				coordinates : [-44.185408825666336, -68.983685546875],
 				zoom : 8,
 				markers : [],
 				frozen : false
 			};
+            $(clone).hide();
 			defaults = $.extend({}, defaults, data);
 
 			// Replace map with clone
